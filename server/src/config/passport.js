@@ -19,9 +19,9 @@ function configurePassport(app) {
             let [user] = await usersTable.find({ email });
             if (user && user.password && user.password === password) {
                 let idObj = await tokensTable.insert({
-                    userid: user.id
+                    authorid: user.id
                 });
-                let token = encode(idObj.id);
+                let token = encode(idObj.id); 
                 return done(null, { token });
             } else {
                 return done(null, false, { message: 'Invalid credentials' });
@@ -40,8 +40,8 @@ function configurePassport(app) {
             let tokenRecord = await tokensTable.getOne(tokenId);
             let user = await usersTable.getOne(tokenRecord.userid);
             if (user) {
-                delete user.password;
-                return done(null, user);
+                delete user.password; //removes pw from user object on server
+                return done(null, user);// after this, req.user is SET
             } else {
                 return done(null, false, { message: 'Invalid token' });
             }
