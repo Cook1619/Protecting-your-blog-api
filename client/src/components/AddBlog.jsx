@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { setAuthToken } from '../services/base';
 
 class AddBlog extends Component {
     constructor(props) {
@@ -19,7 +20,10 @@ class AddBlog extends Component {
         fetch('/api/blogs', {
             method: 'POST',
             body: JSON.stringify(blogInfo),
-            headers: new Headers({ 'Content-Type': 'application/json' })
+            headers: new Headers({ 
+                'Content-Type': 'application/json',
+                'Authorization': Bearer.token()
+            })
         }).then(res => res.json())
             .catch(error => console.log(error))
     }
