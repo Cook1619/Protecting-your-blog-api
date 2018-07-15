@@ -10,6 +10,11 @@ class BlogList extends Component {
             blogs: []
         }
     }
+    componentDidMount() {
+        blogServices.all()
+            .then(console.log);
+    }
+    
     async componentDidMount() {
         try {
             let res = await fetch('/api/blogs/');

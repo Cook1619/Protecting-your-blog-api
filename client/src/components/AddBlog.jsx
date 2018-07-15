@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { setAuthToken } from '../services/base';
+import * as blogServices from '../services/blogs';
 
 class AddBlog extends Component {
     constructor(props) {
@@ -12,6 +13,12 @@ class AddBlog extends Component {
         this.handleBlogContent = this.handleBlogContent.bind(this);
         this.addBlog = this.addBlog.bind(this);
     }
+
+    componentDidMount() {
+        blogServices.all()
+            .then(console.log);
+    }
+
     addBlog() {
         let blogInfo = {
             title: this.state.title,
