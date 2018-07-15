@@ -25,7 +25,7 @@ class Navigation extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/logout" component={Logout} />
                         <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
-                        <Route exact path="/blogs" component={BlogList} />
+                        <PrivateRoute path="/blogs" component={BlogList} />
                         <Route path="/:id" component={SingleBlog} />
                     </Switch>
                 </Fragment>
