@@ -23,7 +23,6 @@ class SingleBlog extends Component {
     }
 
     render() {
-        console.log(this.state.blog)
         return (
             <div>
                 <div className="card">

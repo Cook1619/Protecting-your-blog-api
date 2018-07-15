@@ -31,6 +31,7 @@ class BlogList extends Component {
         return (
             <Fragment>
                 <AddBlog />
+                <h1>hello</h1>
                 {blogList}
             </Fragment>
         )
