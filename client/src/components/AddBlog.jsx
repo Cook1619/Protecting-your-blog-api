@@ -14,10 +14,10 @@ class AddBlog extends Component {
         this.addBlog = this.addBlog.bind(this);
     }
 
-    componentDidMount() {
-        blogServices.all()
-            .then(console.log);
-    }
+    // componentDidMount() {
+    //     blogServices.insert()
+    //         .then(console.log);
+    // }
 
     addBlog() {
         let blogInfo = {
@@ -35,7 +35,6 @@ class AddBlog extends Component {
             .catch(error => console.log(error))
     }
 
-
     handleBlogTitle(event) {
         this.setState({
             title: event.target.value
@@ -46,7 +45,7 @@ class AddBlog extends Component {
             content: event.target.value
         });
     }
-
+   
     render() {
         return (
             <Fragment>

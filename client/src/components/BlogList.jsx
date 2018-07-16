@@ -10,16 +10,11 @@ class BlogList extends Component {
             blogs: []
         }
     }
-    componentDidMount() {
-        blogServices.all()
-            .then(console.log);
-    }
-    
+ 
     async componentDidMount() {
         try {
             let res = await fetch('/api/blogs/');
             let data = await res.json();
-            console.log(data);
             this.setState({
                 blogs: data
             })
@@ -29,7 +24,6 @@ class BlogList extends Component {
     }
 
     render() {
-        console.log(this.state.blogs);
         let blogList = this.state.blogs.map((blog) => {
             return <BlogDetails key={blog.id} blogdata={blog} />
         })
