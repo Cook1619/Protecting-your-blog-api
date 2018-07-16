@@ -10,6 +10,7 @@ function one(id){
 
 function insert(data) {
     return baseService.post('/api/blogs', data);
+    console.log(data);
 }
 
 function update(id, data){

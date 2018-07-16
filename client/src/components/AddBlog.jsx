@@ -14,11 +14,6 @@ class AddBlog extends Component {
         this.addBlog = this.addBlog.bind(this);
     }
 
-    // componentDidMount() {
-    //     blogServices.insert()
-    //         .then(console.log);
-    // }
-
     addBlog() {
         let blogInfo = {
             title: this.state.title,

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 let BlogDetails = ({ blogdata }) => {
-    console.log(blogdata);
     return (
         <div className="card">
             <div className="card-header">
