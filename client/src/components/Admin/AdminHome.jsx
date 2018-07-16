@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import BlogDetails from './BlogDetails';
+import AdminDetails from './AdminDetails';
+import AddBlog from './AddBlog';
 
 class BlogList extends Component {
 
@@ -9,7 +10,7 @@ class BlogList extends Component {
             blogs: []
         }
     }
- 
+
     async componentDidMount() {
         try {
             let res = await fetch('/api/blogs/');
@@ -24,10 +25,12 @@ class BlogList extends Component {
 
     render() {
         let blogList = this.state.blogs.map((blog) => {
-            return <BlogDetails key={blog.id} blogdata={blog} />
+            return <AdminDetails key={blog.id} blogdata={blog} />
         })
         return (
             <Fragment>
+                <AddBlog />
+                <h1>hello</h1>
                 {blogList}
             </Fragment>
         )
