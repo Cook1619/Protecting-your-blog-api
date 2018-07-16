@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { post } from '../../services/base'
 
 class AddBlog extends Component {
     constructor(props) {
@@ -17,12 +18,12 @@ class AddBlog extends Component {
             title: this.state.title,
             content: this.state.content,
         }
+        post('api/blogs', blogInfo);
         fetch('/api/blogs', {
             method: 'POST',
             body: JSON.stringify(blogInfo),
-            headers: new Headers({ 
+            headers: new Headers({
                 'Content-Type': 'application/json',
-                // 'Authorization': setAuthToken()
             })
         }).then(res => res.json())
             .catch(error => console.log(error))
@@ -38,7 +39,7 @@ class AddBlog extends Component {
             content: event.target.value
         });
     }
-   
+
     render() {
         return (
             <Fragment>
