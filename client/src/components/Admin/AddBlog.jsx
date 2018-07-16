@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { setAuthToken } from '../services/base';
-import * as blogServices from '../services/blogs';
 
 class AddBlog extends Component {
     constructor(props) {

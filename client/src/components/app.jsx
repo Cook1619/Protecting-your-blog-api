@@ -8,6 +8,7 @@ import Logout from './auth/logout';
 import AuthButton from './auth/authButton';
 import BlogList from './BlogList';
 import SingleBlog from './SingleBlog';
+import AdminHome from './Admin/AdminHome';
 
 class Navigation extends Component {
 
@@ -18,14 +19,16 @@ class Navigation extends Component {
                     <nav>
                         <Link to="/goodbye">Goodbye</Link>
                         <Link to="/blogs">Blogs</Link>
+                        <Link to="/admin">Admin Login</Link>
                     </nav>
                     <AuthButton />
                     <Switch>
                         <Route exact path="/" component={HelloWorld} />
                         <Route path="/login" component={Login} />
                         <Route path="/logout" component={Logout} />
+                        <Route path="/blogs" component={BlogList} />
                         <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
-                        <PrivateRoute path="/blogs" component={BlogList} />
+                        <PrivateRoute path="/admin" component={AdminHome} />
                         <Route path="/:id" component={SingleBlog} />
                     </Switch>
                 </Fragment>
