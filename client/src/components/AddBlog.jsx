@@ -24,7 +24,7 @@ class AddBlog extends Component {
             body: JSON.stringify(blogInfo),
             headers: new Headers({ 
                 'Content-Type': 'application/json',
-                'Authorization': setAuthToken()
+                // 'Authorization': setAuthToken()
             })
         }).then(res => res.json())
             .catch(error => console.log(error))

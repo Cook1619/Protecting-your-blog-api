@@ -9,7 +9,7 @@ let router = Router();
 
 router.use('/auth', authRouter);
 router.route('*')
-    // .post(tokenMiddleware, isLoggedIn)
+    .post(tokenMiddleware, isLoggedIn)
     .put(tokenMiddleware, isLoggedIn)
     .delete(tokenMiddleware, isLoggedIn);
 
