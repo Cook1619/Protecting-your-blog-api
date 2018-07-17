@@ -25,8 +25,14 @@ class SingleBlog extends Component {
             console.log(e);
         }
     }
-    deleteBlog() {
-      
+    async deleteBlog(){
+        try {
+            let id = this.props.match.params.id
+            console.log(id);
+            await blogServices.destroy(id)
+        } catch (err) {
+            console.log('This is the' + err);
+        }
     }
 
     render() {
@@ -37,7 +43,7 @@ class SingleBlog extends Component {
                         <div className="card-body">{this.state.blog.title}
                             <p>{this.state.blog.content}</p>
                             <p>{this.state.blog._created}</p>
-                            <button className="btn btn-info float-right m-2">Delete</button>
+                            <button className="btn btn-info float-right m-2" onClick={this.deleteBlog.bind(this)}>Delete</button>
                         </div>
                     </div>
                 </div>
