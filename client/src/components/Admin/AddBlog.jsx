@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { post } from '../../services/base'
+import { post, setAuthToken } from '../../services/base'
+import * as blogServices from '../../services/blogs'
 
 class AddBlog extends Component {
     constructor(props) {
@@ -18,15 +19,7 @@ class AddBlog extends Component {
             title: this.state.title,
             content: this.state.content,
         }
-        post('api/blogs', blogInfo);
-        fetch('/api/blogs', {
-            method: 'POST',
-            body: JSON.stringify(blogInfo),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-            })
-        }).then(res => res.json())
-            .catch(error => console.log(error))
+        blogServices.insert(blogInfo);
     }
 
     handleBlogTitle(event) {

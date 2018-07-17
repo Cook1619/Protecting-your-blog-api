@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import AdminDetails from './AdminDetails';
 import AddBlog from './AddBlog';
+import * as blogServices from '../../services/blogs'
+import { getCiphers } from 'crypto';
 
 class BlogList extends Component {
 
@@ -22,7 +24,7 @@ class BlogList extends Component {
             console.log(e);
         }
     }
-
+ 
     render() {
         let blogList = this.state.blogs.map((blog) => {
             return <AdminDetails key={blog.id} blogdata={blog} />
@@ -30,7 +32,6 @@ class BlogList extends Component {
         return (
             <Fragment>
                 <AddBlog />
-                <h1>hello</h1>
                 {blogList}
             </Fragment>
         )
