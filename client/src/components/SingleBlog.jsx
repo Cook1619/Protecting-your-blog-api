@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import * as blogServices from '../services/blogs'
 import { render } from 'react-dom';
+
 
 class SingleBlog extends Component {
 
@@ -9,17 +11,22 @@ class SingleBlog extends Component {
             blog: []
         }
     }
+    
     async componentDidMount() {
+        let id = this.props.match.params.id;
         try {
-            let res = await fetch('/api/blogs/' + this.props.match.params.id);
+            let res = await fetch('/api/blogs/' + id);
             let data = await res.json();
-            console.log(data);
+            console.log(data.id);
             this.setState({
                 blog: data
             })
         } catch (e) {
             console.log(e);
         }
+    }
+    deleteBlog() {
+      
     }
 
     render() {
@@ -30,6 +37,7 @@ class SingleBlog extends Component {
                         <div className="card-body">{this.state.blog.title}
                             <p>{this.state.blog.content}</p>
                             <p>{this.state.blog._created}</p>
+                            <button className="btn btn-info float-right m-2">Delete</button>
                         </div>
                     </div>
                 </div>

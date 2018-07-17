@@ -29,7 +29,7 @@ class Navigation extends Component {
                         <Route path="/blogs" component={BlogList} />
                         <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
                         <PrivateRoute path="/admin" component={AdminHome} />
-                        <Route path="/:id" component={SingleBlog} />
+                        <PrivateRoute path="/:id" component={SingleBlog} />
                     </Switch>
                 </Fragment>
             </Router>
