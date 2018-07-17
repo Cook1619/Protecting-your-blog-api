@@ -23,4 +23,9 @@ router.post('/', async (req, res) => {
     res.json(id);
 })
 
+router.delete('/:id', async (req, res) => {
+    let id = req.params.id;
+    let result = await table.delete(id);
+    res.json(result);
+})
 export default router;
