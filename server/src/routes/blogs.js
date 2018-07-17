@@ -25,7 +25,8 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     let id = req.params.id;
-    let result = await table.delete(id);
+    let result = await iHateThisLab.delete(id);
+    console.log(result);
     res.json(result);
 })
 export default router;

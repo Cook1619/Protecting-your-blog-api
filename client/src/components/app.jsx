@@ -7,7 +7,7 @@ import Login from './auth/login';
 import Logout from './auth/logout';
 import AuthButton from './auth/authButton';
 import BlogList from './BlogList';
-import SingleBlog from './SingleBlog';
+import SingleBlog from './Admin/SingleBlog';
 import AdminHome from './Admin/AdminHome';
 
 class Navigation extends Component {

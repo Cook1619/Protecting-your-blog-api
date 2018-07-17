@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import * as blogServices from '../services/blogs'
+import * as blogServices from '../../services/blogs'
 import { render } from 'react-dom';
 
 
@@ -17,7 +17,6 @@ class SingleBlog extends Component {
         try {
             let res = await fetch('/api/blogs/' + id);
             let data = await res.json();
-            console.log(data.id);
             this.setState({
                 blog: data
             })
@@ -28,8 +27,8 @@ class SingleBlog extends Component {
     async deleteBlog(){
         try {
             let id = this.props.match.params.id
-            console.log(id);
             await blogServices.destroy(id)
+            console.log(blogServices.destroy)
         } catch (err) {
             console.log('This is the' + err);
         }
