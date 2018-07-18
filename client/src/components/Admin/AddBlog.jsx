@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { post, setAuthToken } from '../../services/base'
 import * as blogServices from '../../services/blogs'
+import { Link } from 'react-router-dom';
 
 class AddBlog extends Component {
     constructor(props) {
@@ -46,9 +46,11 @@ class AddBlog extends Component {
                     placeholder="Enter in Blog Content here"
                     onChange={this.handleBlogContent}
                 />
-                <button
-                    onClick={this.addBlog}
-                >Post Blog</button>
+                <Link 
+                className="btn btn-info" 
+                to={`/admin`} onClick={this.addBlog.bind(this)}>
+                Add Blog
+                </Link>
 
             </Fragment>
         )

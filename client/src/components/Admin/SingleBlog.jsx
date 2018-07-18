@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import * as blogServices from '../../services/blogs'
+import { Link } from 'react-router-dom';
 import { render } from 'react-dom';
 
 
@@ -27,8 +28,8 @@ class SingleBlog extends Component {
     async deleteBlog(){
         try {
             let id = this.props.match.params.id
-            await blogServices.destroy(id)
-            console.log(blogServices.destroy)
+            let results = await blogServices.destroy(id)
+            console.log(results);
         } catch (err) {
             console.log('This is the' + err);
         }
@@ -42,7 +43,7 @@ class SingleBlog extends Component {
                         <div className="card-body">{this.state.blog.title}
                             <p>{this.state.blog.content}</p>
                             <p>{this.state.blog._created}</p>
-                            <button className="btn btn-info float-right m-2" onClick={this.deleteBlog.bind(this)}>Delete</button>
+                            <Link className="btn btn-info float-right m-2" to={`/admin`} onClick={this.deleteBlog.bind(this)}> Delete</Link>
                         </div>
                     </div>
                 </div>
@@ -52,3 +53,4 @@ class SingleBlog extends Component {
 }
 
 export default SingleBlog;
+
